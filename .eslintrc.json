@@ -1,6 +1,7 @@
 {
   "root": true,
   "ignorePatterns": ["projects/**/*"],
+  "plugins": ["unused-imports"],
   "overrides": [
     {
       "files": ["*.ts"],
@@ -20,20 +21,14 @@
             "style": "camelCase"
           }
         ],
-        "@angular-eslint/component-selector": [
-          "error",
-          {
-            "type": "element",
-            "prefix": "app",
-            "style": "kebab-case"
-          }
-        ]
+        "unused-imports/no-unused-imports": "warn"
       }
     },
     {
       "files": ["*.html"],
       "extends": [
         "plugin:@angular-eslint/template/recommended",
+        "plugin:prettier/recommended",
         "plugin:@angular-eslint/template/accessibility"
       ],
       "rules": {

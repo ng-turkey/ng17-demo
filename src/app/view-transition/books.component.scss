@@ -1,0 +1,14 @@
+.page {
+  padding: 1rem 2rem;
+}
+
+.books-container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4rem;
+}
+
+.book:hover {
+  transform: scale(1.1);
+  transition-duration: 150ms;
+}

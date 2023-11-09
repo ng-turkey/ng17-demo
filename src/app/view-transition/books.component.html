@@ -1,0 +1,10 @@
+<div class="page">
+  <h1>Books</h1>
+  <div class="books-container">
+    <ng-container *ngFor="let book of books$ | async">
+      <a class="book" [routerLink]="book.id">
+        <img [attr.alt]="book.title" [src]="book.img" width="300" height="400" [style]="book.viewTransitionName" />
+      </a>
+    </ng-container>
+  </div>
+</div>

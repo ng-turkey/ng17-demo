@@ -1,0 +1,21 @@
+<div class="container" *ngIf="book$ | async as book">
+  <div class="col">
+    <img [attr.alt]="book.title" [src]="book.img" width="300" height="400" [style]="book.viewTransitionName" />
+  </div>
+  <div class="col">
+    <div class="book-details">
+      <h2 class="title">
+        {{ book.title }}
+      </h2>
+      <span><b>Author:</b> {{ book.author }}</span>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id viverra dui. Nam tempor quam rhoncus ipsum consectetur blandit.
+        Curabitur placerat imperdiet turpis, et tempor ex facilisis quis. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+        Fusce rutrum metus sit amet dolor facilisis pellentesque. Etiam ac malesuada nisi. Vivamus et finibus neque, quis ultrices nunc.
+        Mauris rhoncus odio quis nisl vehicula, quis malesuada quam cursus. Phasellus cursus ante lectus, eu tristique ante malesuada vel.
+        Cras quis nulla mattis, molestie lectus nec, varius felis. Integer a metus lorem. Nunc venenatis ut dolor vel posuere. Sed turpis
+        augue, sollicitudin at ipsum eget, convallis ultrices ex.
+      </p>
+    </div>
+  </div>
+</div>
