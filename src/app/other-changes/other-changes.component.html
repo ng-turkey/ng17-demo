@@ -1,0 +1,91 @@
+<div class="page">
+  <mat-card>
+    <mat-card-title> Signals Are now stable! </mat-card-title>
+    <mat-card-content class="item-body">
+      <p>Signals API is now marked as stable.</p>
+      <small>
+        <code>effect()</code>
+        and RxJS interoperability functions (<code>toSignal, toObservable</code>) are still marked as developer preview.
+      </small>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title> <code>mutate</code> has been dropped </mat-card-title>
+    <mat-card-content class="item-body">
+      <ul class="list-style-none">
+        <li>
+          Previously:
+          <code class="block">books.mutate(books => books.push(newBook))</code>
+        </li>
+        <li>
+          Now:
+          <code class="block">books.update(books => [...books, newBook])</code>
+        </li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title> styleUrls as a string</mat-card-title>
+    <mat-card-content class="item-body">
+      <pre>
+        &#64;Component({{ '{' }}
+          selector: 'app-root',
+          templateUrl: './app.component.html',
+          styleUrl: './app.component.scss'
+        {{ '}' }})
+        export class AppComponent {{ '{' }} {{ '}' }}
+      </pre>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title> Http Improvements</mat-card-title>
+    <mat-card-content class="item-body">
+      <p>Fetch backend has been promoted to stable.</p>
+      When SSR enabled, it is now possible to customize transfer cache using <code>withHttpTransferCacheOptions(options)</code>
+      <ul>
+        <li><code>filter:</code> a function to filter the requests that should be cached.</li>
+        <li><code>includeHeaders:</code> the list of headers to include (empty by default)</li>
+        <li><code>includePostRequests:</code> cache POST requests (only GET and HEAD requests are cached by default)</li>
+      </ul>
+      Example:
+      <pre>
+        bootstrapApplication(AppComponent, {{ '{' }}
+          providers: [provideHttpClient({{ '{' }}
+            withHttpTransferCacheOptions({{ '{' }} includePostRequests: true {{ '}' }})
+          {{ '}' }})
+        {{ '}' }});
+      </pre>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Lazy Load Animations Package</mat-card-title>
+    <mat-card-content>
+      <p>It is now possible to lazy-load the animations package.</p>
+      <pre>
+        bootstrapApplication(AppComponent, {{ '{' }}
+          providers: [provideAnimationsAsync()
+        {{ '}' }});
+      </pre>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>ng new --ssr</mat-card-title>
+    <mat-card-content>
+      <p>A new flag <code>-ssr</code> has been added to the <code>ng new</code> command to generate a new project with SSR enabled.</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Ignore all CommonJS or AMD package warnings</mat-card-title>
+    <mat-card-content>
+      <p>
+        <code>"allowedCommonJsDependencies": ["*"]</code>
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>

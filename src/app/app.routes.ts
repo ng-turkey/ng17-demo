@@ -48,6 +48,11 @@ export const routes: Routes = [
         loadComponent: () => import('./new-lifecycle-hooks/new-lifecycle-hooks.component'),
         title: 'New Lifecycle Hooks',
       },
+      {
+        path: 'other-changes',
+        loadComponent: () => import('./other-changes/other-changes.component'),
+        title: 'Other Changes',
+      },
     ],
   },
 ];
