@@ -39,11 +39,14 @@ export const routes: Routes = [
         providers: [
           {
             provide: NAME,
-            useFactory() {
-              return 'Router';
-            },
+            useValue: 'From Router',
           },
         ],
+      },
+      {
+        path: 'new-lifecycle-hooks',
+        loadComponent: () => import('./new-lifecycle-hooks/new-lifecycle-hooks.component'),
+        title: 'New Lifecycle Hooks',
       },
     ],
   },
