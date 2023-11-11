@@ -1,4 +1,4 @@
-import { Component, forwardRef, InjectionToken } from '@angular/core';
+import { Component, InjectionToken } from '@angular/core';
 import { GreetingComponent } from './greeting.component';
 
 export const NAME = new InjectionToken<string>('Name');
@@ -6,8 +6,9 @@ export const NAME = new InjectionToken<string>('Name');
 @Component({
   selector: 'injector-tree',
   template: `
-    <app-greeting />
-    <injector-tree-child />
+    <div>
+      <app-greeting />
+    </div>
   `,
   providers: [
     {
@@ -15,21 +16,13 @@ export const NAME = new InjectionToken<string>('Name');
       useValue: 'NgTurkey',
     },
   ],
-  imports: [GreetingComponent, forwardRef(() => InjectorTreeChildComponent)],
+  styles: `
+    :host {
+      display: block;
+      padding: 1rem 2rem;
+    }
+  `,
+  imports: [GreetingComponent],
   standalone: true,
 })
 export default class InjectorTreeComponent {}
-
-@Component({
-  selector: 'injector-tree-child',
-  template: '<app-greeting />',
-  imports: [GreetingComponent],
-  standalone: true,
-  providers: [
-    {
-      provide: NAME,
-      useValue: 'Rast Mobile',
-    },
-  ],
-})
-export class InjectorTreeChildComponent {}

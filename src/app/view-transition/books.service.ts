@@ -13,25 +13,25 @@ const MOCK: Array<Book> = [
   {
     id: 'clean-code',
     title: 'Clean Code: A handbook of Agile Software Craftsmanship',
-    img: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1436202607i/3735293.jpg',
+    img: '/assets/images/clean-code.png',
     author: 'Robert C. Martin',
   },
   {
     id: 'introducing-git',
     title: 'Introducing Github: A Non-Technical Guide',
-    img: 'https://m.media-amazon.com/images/I/91jo2OWqiGL._SL1500_.jpg',
+    img: '/assets/images/introducing-github.png',
     author: 'Miguel Angel Durán',
   },
   {
     id: 'the-clean-coder',
     title: 'The Clean Coder: A Code of Conduct for Professional Programmers',
-    img: 'https://m.media-amazon.com/images/I/61GHrDrumhL._SL1000_.jpg',
+    img: '/assets/images/the-clean-coder.png',
     author: 'Robert C. Martin',
   },
   {
     id: 'javascript-the-good-parts',
     title: 'JavaScript: The Good Parts',
-    img: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1328834793i/2998152.jpg',
+    img: '/assets/images/javascript-the-good-parts.png',
     author: 'Douglas Crockford',
   },
 ].map((b) => {

@@ -6,6 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 @Component({
   selector: 'layout',
   templateUrl: './layout.component.html',
+  styleUrl: './layout.component.scss',
   standalone: true,
   imports: [HeaderComponent, RouterOutlet, FooterComponent],
 })
