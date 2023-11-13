@@ -1,0 +1,80 @@
+<div class="page">
+  <div>
+    <h3>if</h3>
+    <button mat-button *ngIf="isAdmin">Delete database</button>
+    @if (isAdmin) {
+    <button mat-button>Delete database</button>
+    }
+  </div>
+
+  <div>
+    <h3>if - else</h3>
+    <button mat-button *ngIf="isAdmin; else noPermission">Delete database</button>
+    @if (isAdmin) {
+    <button mat-button>Delete database</button>
+    } @else {
+    <p>You don't have permission.</p>
+    }
+  </div>
+
+  <div>
+    <h3>for loop</h3>
+    <ul>
+      <li *ngFor="let fruit of fruits; trackBy: fruitsTrackBy">
+        {{ fruit }}
+      </li>
+    </ul>
+
+    <ul>
+      @for (fruit of fruits; track fruit) {
+      <li>{{ fruit }}</li>
+      }
+    </ul>
+  </div>
+
+  <div>
+    <h3>for loop scope variables</h3>
+    <ul>
+      @for (fruit of fruits; track fruit; let idx = $index, e = $even) {
+      <li>Size: {{ $count }}</li>
+      <li>Index: {{ idx }}</li>
+      <li>First: {{ $first }}</li>
+      <li>Last: {{ $last }}</li>
+      <li>Even: {{ e }}</li>
+      <li>Odd: {{ $odd }}</li>
+      }
+    </ul>
+  </div>
+
+  <div>
+    <h3>for loop empty</h3>
+    <ul>
+      @for (fruit of fruits; track fruit) {
+      <li>{{ fruit }}</li>
+      } @empty {
+      <li>no fruits left..</li>
+      }
+    </ul>
+  </div>
+
+  <div>
+    <h3>switch</h3>
+    <ul>
+      @switch (userType) { @case ('admin') {
+      <span> I am an admin </span>
+      } @case ('staff') {
+      <span>I am a staff</span>
+      } @case ('moderator') {
+      <span>I am a moderator</span>
+      } @default {
+      <span>No one knows who I am</span>
+      } }
+    </ul>
+  </div>
+
+  <p>migrate your projects by running: ng generate {{ '@' }}angular/core:control-flow</p>
+</div>
+
+<ng-template #noPermission>
+  <p>You don't have permission.</p>
+</ng-template>
