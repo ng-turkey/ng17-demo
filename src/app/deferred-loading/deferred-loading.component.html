@@ -12,11 +12,14 @@
     <mat-card-content>
       @defer {
       <app-demo />
-      } @placeholder (minimum 1s){
-      <p>Placeholder</p>
-      } @loading{
+      }
+      @placeholder (minimum 1s){
+        <p>Placeholder</p>
+      }
+      @loading{
       <mat-progress-spinner mode="indeterminate" />
-      } @error {
+      }
+      @error {
       <p>Error Block</p>
       }
     </mat-card-content>
@@ -41,19 +44,6 @@
 
   <mat-card>
     <mat-card-title>
-      <h2>On Hover</h2>
-    </mat-card-title>
-
-    <mat-card-content style="max-height: 300px; overflow: auto; display: block">
-      <button #hoverMe>Hover Me</button>
-      @defer(on hover(hoverMe)){
-      <p>This text will be shown when hover the button</p>
-      }
-    </mat-card-content>
-  </mat-card>
-
-  <mat-card>
-    <mat-card-title>
       <h2>On Interaction</h2>
     </mat-card-title>
 
@@ -61,6 +51,19 @@
       <button #interaction>Click and see suprize</button>
       @defer(on interaction(interaction); prefetch on hover(hoverMe)){
       <app-user />
+      }
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>
+      <h2>On Hover</h2>
+    </mat-card-title>
+
+    <mat-card-content style="max-height: 300px; overflow: auto; display: block">
+      <button #hoverMe>Hover Me</button>
+      @defer(on hover(hoverMe)){
+      <p>This text will be shown when hover the button</p>
       }
     </mat-card-content>
   </mat-card>
