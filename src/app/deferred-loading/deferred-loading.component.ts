@@ -6,9 +6,13 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 
-import { IntervalComponent } from './components/demo.component';
+import { IntervalComponent } from './components/interval.component';
 import DefaultComponent from './components/default.component';
 import { UserComponent } from './components/user.component';
+import { TextComponent } from './components/text.component';
+import { NgOptimizedImage } from '@angular/common';
+import { SCAMTextComponentModule } from './components/scam-text.component';
+import { MyImageComponent } from './components/image.component';
 
 /**
  * Not working on SSR
@@ -18,6 +22,7 @@ import { UserComponent } from './components/user.component';
   standalone: true,
   selector: 'app-deferred-loading',
   templateUrl: './deferred-loading.component.html',
+  styleUrl: './deferred-loading.component.scss',
   styles: `.image{
     height: 200px;
     background: black;
@@ -28,7 +33,11 @@ import { UserComponent } from './components/user.component';
   imports: [
     MatButtonModule,
     MatProgressSpinnerModule,
+    TextComponent,
     MatCardModule,
+    SCAMTextComponentModule,
+    MyImageComponent,
+    NgOptimizedImage,
     MatTabsModule,
     MatExpansionModule,
     IntervalComponent,
@@ -40,4 +49,6 @@ export default class DeferredLoadingComponent {
   showDetail = false;
   showDefaultComponent = false;
   items = [...Array(150).keys()];
+
+  condition = false;
 }

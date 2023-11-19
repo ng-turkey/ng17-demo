@@ -59,8 +59,11 @@ export default class NewLifecycleHooksComponent implements OnDestroy {
   private chartRef: Chart | undefined;
   private zone = inject(NgZone);
   constructor() {
-    afterRender(() => console.log('after render'));
-    afterNextRender(() => this.initializeChart(), { phase: AfterRenderPhase.Write });
+    afterRender(() => console.log('afterRender'));
+    afterNextRender(() => {
+      this.initializeChart(), { phase: AfterRenderPhase.Write };
+      console.log('afterNextRender');
+    });
   }
 
   destroyChart() {

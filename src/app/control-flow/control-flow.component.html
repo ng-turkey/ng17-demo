@@ -8,6 +8,25 @@
   </div>
 
   <div>
+    <h3>as - variable</h3>
+    <button mat-button *ngIf="isAdmin$ | async as isAdmin">Delete database</button>
+    @if (isAdmin$ | async; as isAdmin) {
+      <button mat-button>Delete database</button>
+    }
+  </div>
+
+  <div>
+    <h3>if - else if</h3>
+    @if (userType === 'admin') {
+      <p>You are an admin</p>
+    } @else if (userType === 'staff') {
+      <p>You are a staff</p>
+    } @else if (userType === 'moderator') {
+      <p>You are a moderator</p>
+    }
+  </div>
+
+  <div>
     <h3>if - else</h3>
     <button mat-button *ngIf="isAdmin; else noPermission">Delete database</button>
     @if (isAdmin) {
@@ -62,16 +81,16 @@
     <ul>
       @switch (userType) {
         @case ('admin') {
-          <span> I am an admin </span>
+          <span>You are an admin</span>
         }
         @case ('staff') {
-          <span>I am a staff</span>
+          <span>You are a staff</span>
         }
         @case ('moderator') {
-          <span>I am a moderator</span>
+          <span>You are a moderator</span>
         }
         @default {
-          <span>No one knows who I am</span>
+          <span>Who you are?</span>
         }
       }
     </ul>

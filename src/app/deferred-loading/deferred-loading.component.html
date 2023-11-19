@@ -1,36 +1,17 @@
 <div class="page">
-  <h1>
-    Only works with
-    <code><b>Standalone</b> Component | Directive | Pipe</code>
-  </h1>
-
   <mat-card>
     <mat-card-title>
-      <h2>Directly Usage</h2>
+      <h2>Usage</h2>
     </mat-card-title>
     <mat-card-content>
       @defer (on timer(5s)) {
-        <app-demo />
+        <app-interval />
       } @placeholder (minimum 500ms) {
         <p>Placeholder</p>
       } @loading (after 150ms; minimum 1500ms) {
         <p>loading..</p>
       } @error {
         <p>Error Block</p>
-      }
-    </mat-card-content>
-  </mat-card>
-
-  <mat-card>
-    <mat-card-title>
-      <h2><code>export default class</code> Sample</h2>
-    </mat-card-title>
-
-    <mat-card-content>
-      <button (click)="showDefaultComponent = !showDefaultComponent">Show Default Component</button>
-
-      @defer (when showDefaultComponent) {
-        <app-default />
       }
     </mat-card-content>
   </mat-card>
@@ -44,7 +25,7 @@
     </mat-card-title>
 
     <mat-card-content style="max-height: 300px; overflow: auto; display: block">
-      <button #interaction>Click and see suprize</button>
+      <button color="primary" mat-raised-button #interaction>Click and see surprise</button>
       @defer (on interaction(interaction); prefetch on hover(hoverMe)) {
         <app-user />
       }
@@ -57,27 +38,25 @@
     </mat-card-title>
 
     <mat-card-content style="max-height: 300px; overflow: auto; display: block">
-      <button #hoverMe>Hover Me</button>
+      <button color="primary" mat-raised-button #hoverMe>Hover Me</button>
       @defer (on hover(hoverMe)) {
-        <p>This text will be shown when hover the button</p>
+        <app-text text="This text will be shown when hover the button" />
       }
     </mat-card-content>
   </mat-card>
 
   <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <h2>Viewport</h2>
-    </mat-expansion-panel-header>
+    <mat-expansion-panel-header> Viewport </mat-expansion-panel-header>
 
     <ng-template matExpansionPanelContent>
       @for (item of items; track item) {
         @defer (on viewport) {
           <div>
             <img
-              src="../../assets/logo/rastmobile-logo.png"
-              alt="Rastmobile Logo"
-              width="150"
-              height="150"
+              ngSrc="https://picsum.photos/id/{{ item }}/400/300"
+              width="400"
+              height="300"
+              alt="random image"
               class="image"
             />
           </div>
@@ -87,4 +66,78 @@
       }
     </ng-template>
   </mat-expansion-panel>
+
+  <hr />
+  <mat-card class="danger">
+    <mat-card-title>
+      <h2>Prefetch</h2>
+      <mat-card-content>
+        <button color="primary" mat-raised-button #hoverMe2>Hover me and then click</button>
+        @defer (on interaction(hoverMe2); prefetch on hover(hoverMe2)) {
+          <app-text text="This text will be shown when hover the button" />
+        }
+      </mat-card-content>
+    </mat-card-title>
+  </mat-card>
+
+  <hr />
+
+  <mat-card class="danger">
+    <mat-card-title>
+      <h2>On condition match</h2>
+      <mat-card-content>
+        <button color="primary" mat-raised-button (click)="condition = !condition">
+          condition is {{ condition }}
+        </button>
+        @defer (when condition) {
+          <app-text text="If you can see me then you can see me" />
+        }
+      </mat-card-content>
+    </mat-card-title>
+  </mat-card>
+
+  <mat-card class="danger">
+    <mat-card-title>
+      <h2><code>export default class</code> Sample</h2>
+    </mat-card-title>
+
+    <mat-card-content>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="showDefaultComponent = !showDefaultComponent"
+      >
+        Show Default Component
+      </button>
+
+      @defer (when showDefaultComponent) {
+        <app-default />
+      }
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="danger">
+    <mat-card-title>
+      <h2>Doesn't work with non-standalone components & templates</h2>
+    </mat-card-title>
+    <mat-card-content>
+      @defer (on timer(10s)) {
+        <app-scam-text text="hi there" />
+      }
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="danger">
+    <mat-card-title>
+      <h2>Layout shift</h2>
+    </mat-card-title>
+    <mat-card-content>
+      <button color="primary" mat-raised-button #btn>Call</button>
+      <p>Some Text</p>
+      @defer (on interaction(btn)) {
+        <my-image />
+      }
+      <p>More text</p>
+    </mat-card-content>
+  </mat-card>
 </div>
