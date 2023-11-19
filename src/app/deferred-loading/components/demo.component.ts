@@ -9,6 +9,8 @@ export class DemoComponent {
   @Input() user: any;
   
   constructor() {
-    // console.log(this.user.name);
+    for (let index = 0; index < 10000; index++) {
+      console.log(index);
+    }
   }
 }

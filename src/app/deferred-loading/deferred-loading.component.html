@@ -10,17 +10,17 @@
     </mat-card-title>
 
     <mat-card-content>
-      @defer {
-      <app-demo />
+      @defer(on timer(5s)) {
+        <app-demo />
       }
-      @placeholder (minimum 1s){
+      @placeholder (minimum 500ms){
         <p>Placeholder</p>
       }
-      @loading{
-      <mat-progress-spinner mode="indeterminate" />
+      @loading(after 150ms; minimum 1500ms) {
+        <p>loading..</p>
       }
       @error {
-      <p>Error Block</p>
+        <p>Error Block</p>
       }
     </mat-card-content>
   </mat-card>
