@@ -11,12 +11,10 @@
 
     <mat-card-content>
       @defer {
-      <button mat-flat-button color="warn" (click)="showDetail = true">
-        Displayed button directly in defer block
-      </button>
-      } @placeholder {
+      <app-demo />
+      } @placeholder (minimum 1s){
       <p>Placeholder</p>
-      } @loading (after 2s; minimum 2000ms) {
+      } @loading{
       <mat-progress-spinner mode="indeterminate" />
       } @error {
       <p>Error Block</p>
@@ -24,21 +22,20 @@
     </mat-card-content>
   </mat-card>
 
-  @if(false){
   <mat-card>
     <mat-card-title>
-      <h2>Cascading Load</h2>
+      <h2><code>export default class</code> Sample</h2>
     </mat-card-title>
 
     <mat-card-content>
-      @defer {
-      <app-user />
-      } @placeholder {
-      <p>My error message</p>
+      <button (click)="showDefaultComponent = !showDefaultComponent">Show Default Component</button>
+
+      @defer(when showDefaultComponent){
+      <app-default />
       }
     </mat-card-content>
   </mat-card>
-  }
+
   <hr />
   <h1>Triggers</h1>
 
@@ -74,18 +71,18 @@
     </mat-expansion-panel-header>
 
     <ng-template matExpansionPanelContent>
-      @for(item of items; track item)
-      { 
+      @for(item of items; track item) { 
         @defer(on viewport) {
-          <div style="height: 300px">
-            <img
-              src="assets/logo/ngturkey logo.png"
-              alt="NG Turkey Logo"
-              width="250"
-              height="250"
-            />
-          </div>
-        } 
+        <div>
+          <img
+            src="../../assets/logo/rastmobile-logo.png"
+            alt="Rastmobile Logo"
+            width="150"
+            height="150"
+            class="image"
+          />
+        </div>
+        }
         @placeholder (minimum 1500ms) {
           <mat-progress-spinner mode="indeterminate" />
         }
