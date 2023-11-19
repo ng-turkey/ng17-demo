@@ -1,4 +1,14 @@
-import { afterNextRender, afterRender, AfterRenderPhase, Component, ElementRef, inject, NgZone, OnDestroy, ViewChild } from '@angular/core';
+import {
+  afterNextRender,
+  afterRender,
+  AfterRenderPhase,
+  Component,
+  ElementRef,
+  inject,
+  NgZone,
+  OnDestroy,
+  ViewChild,
+} from '@angular/core';
 import { Chart, BarController, BarElement, LinearScale, CategoryScale } from 'chart.js';
 import { MatButtonModule } from '@angular/material/button';
 

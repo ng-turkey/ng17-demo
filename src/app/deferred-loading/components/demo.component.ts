@@ -1,16 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Component } from '@angular/core';
+import { interval, startWith } from 'rxjs';
 
 @Component({
   standalone: true,
   selector: 'app-demo',
-  template: `<p>Lazy loaded demo component</p>`,
+  template: `<p>Timer: {{ interval$ | async }}</p>`,
+  imports: [AsyncPipe],
 })
-export class DemoComponent {
-  @Input() user: any;
-  
-  constructor() {
-    for (let index = 0; index < 10000; index++) {
-      console.log(index);
-    }
-  }
+export class IntervalComponent {
+  interval$ = interval(5000).pipe(startWith(0));
 }

@@ -5,7 +5,8 @@
       <p>Signals API is now marked as stable.</p>
       <small>
         <code>effect()</code>
-        and RxJS interoperability functions (<code>toSignal, toObservable</code>) are still marked as developer preview.
+        and RxJS interoperability functions (<code>toSignal, toObservable</code>) are still marked
+        as developer preview.
       </small>
     </mat-card-content>
   </mat-card>
@@ -44,11 +45,15 @@
     <mat-card-title> Http Improvements</mat-card-title>
     <mat-card-content class="item-body">
       <p>Fetch backend has been promoted to stable.</p>
-      When SSR enabled, it is now possible to customize transfer cache using <code>withHttpTransferCacheOptions(options)</code>
+      When SSR enabled, it is now possible to customize transfer cache using
+      <code>withHttpTransferCacheOptions(options)</code>
       <ul>
         <li><code>filter:</code> a function to filter the requests that should be cached.</li>
         <li><code>includeHeaders:</code> the list of headers to include (empty by default)</li>
-        <li><code>includePostRequests:</code> cache POST requests (only GET and HEAD requests are cached by default)</li>
+        <li>
+          <code>includePostRequests:</code> cache POST requests (only GET and HEAD requests are
+          cached by default)
+        </li>
       </ul>
       Example:
       <pre>
@@ -76,7 +81,10 @@
   <mat-card>
     <mat-card-title>ng new --ssr</mat-card-title>
     <mat-card-content>
-      <p>A new flag <code>-ssr</code> has been added to the <code>ng new</code> command to generate a new project with SSR enabled.</p>
+      <p>
+        A new flag <code>-ssr</code> has been added to the <code>ng new</code> command to generate a
+        new project with SSR enabled.
+      </p>
     </mat-card-content>
   </mat-card>
 

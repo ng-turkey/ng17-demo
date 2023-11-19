@@ -13,7 +13,9 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [NgIf, AsyncPipe, MatButtonModule, MatIconModule],
 })
 export default class BookDetailsComponent {
-  private readonly id$: Observable<string> = inject(ActivatedRoute).params.pipe(map((params) => params['id']));
+  private readonly id$: Observable<string> = inject(ActivatedRoute).params.pipe(
+    map((params) => params['id']),
+  );
 
   private readonly booksService = inject(BooksService);
 

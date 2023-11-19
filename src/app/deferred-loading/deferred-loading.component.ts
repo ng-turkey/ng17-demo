@@ -6,7 +6,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 
-import { DemoComponent } from './components/demo.component';
+import { IntervalComponent } from './components/demo.component';
 import DefaultComponent from './components/default.component';
 import { UserComponent } from './components/user.component';
 
@@ -31,7 +31,7 @@ import { UserComponent } from './components/user.component';
     MatCardModule,
     MatTabsModule,
     MatExpansionModule,
-    DemoComponent,
+    IntervalComponent,
     DefaultComponent,
     UserComponent,
   ],
